@@ -1,0 +1,7 @@
+<div class="unicodesystems-bannerslider widget-bannerslider">
+    <?php
+    $sliderId = $block->getData('slider');
+    echo $block->getLayout()->createBlock(\Unicodesystems\Bannerslider\Block\SliderItem::class)
+    ->setSliderId($sliderId)->toHtml();
+    ?>
+</div>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Unicodesystems_Bannerslider::bannerslider" title=" Unicodesystems Banner" module="Unicodesystems_Bannerslider" sortOrder="10" resource="Unicodesystems_Bannerslider::bannerslider" parent="Magento_Backend::content"/>
+
+        <!-- Unicodesystems_Bannerslider::bannerslider_bannerslider -->
+
+		<add id="Unicodesystems_Bannerslider::bannerslider_sliders" title="Manage Sliders" module="Unicodesystems_Bannerslider" sortOrder="10" parent="Unicodesystems_Bannerslider::bannerslider" action="bannerslideradmin/slider" resource="Unicodesystems_Bannerslider::bannerslider_sliders"/>
+
+        <add id="Unicodesystems_Bannerslider::bannerslider_banners" title="Manage Banners" module="Unicodesystems_Bannerslider" sortOrder="10" parent="Unicodesystems_Bannerslider::bannerslider" action="bannerslideradmin/banner" resource="Unicodesystems_Bannerslider::bannerslider_banners"/>
+
+        <add id="Unicodesystems_Bannerslider::bannerslider_coreslider" title="Preview Slider" module="Unicodesystems_Bannerslider" sortOrder="10" parent="Unicodesystems_Bannerslider::bannerslider" action="bannerslideradmin/coreslider" resource="Unicodesystems_Bannerslider::bannerslider_coreslider"/>
+
+        <add id="Unicodesystems_Bannerslider::settings" title="Settings" module="Unicodesystems_Bannerslider" sortOrder="20" parent="Unicodesystems_Bannerslider::bannerslider" action="adminhtml/system_config/edit/section/bannerslider" resource="Unicodesystems_Bannerslider::settings"/>
+
+        <!-- End Unicodesystems_Bannerslider::bannerslider_bannerslider -->
+    </menu>
+</config>

@@ -1,0 +1,140 @@
+/*
+
+custom css
+
+*/
+
+.jquery-slider-wrapper img {
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+.jquery-slider-wrapper .jquery-slider-slide {
+
+	height: 100%;
+}
+
+.unicodesystems-bannerslider-standard img {
+
+	cursor: pointer;
+
+}
+
+.unicodesystems-bannerslide-flex-slider .flex-control-nav img{
+	width: 300px;
+	height: 150px;
+}
+
+.flexslider-carousel .slides img{
+	height: 100px !important;
+}
+
+.flexslider-carousel .slides li {
+    padding-right: 4px;
+}
+
+.unicodesystems-bannerslider-standard {
+
+	width: 100%;
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .unicodesystems-bannerslider-standard {
+
+    	width: 768px;
+
+    }
+
+}
+
+
+@media only screen and (max-width: 360px){
+
+    .unicodesystems-bannerslider-standard {
+
+    	width: 290px;
+    }
+
+}
+
+
+/*** flex caption layout***/
+
+.unicodesystems-bannerslide-flex-slider .flex-caption {
+        position: absolute;
+    z-index: 9999;
+    display: inline-block;
+    width: 40%;
+    top: 0;
+    right: 20px;
+    background-color: rgba(255,255,255,0.9);
+    padding: 25px 20px 35px;
+    margin: 25px 0 0 0;
+}
+
+
+body{ overflow-x: hidden;}
+.flex-viewport .slides li{ position: relative;}
+.unicodesystems-bannerslide-flex-slider .flex-caption span{ position: static !important;padding: 0 !important;width: 100% !important; height: auto !important; margin:  0 !important;    display: inline-block; background: transparent;}
+.unicodesystems-bannerslide-flex-slider .flex-caption span span{ padding: 0 !important;}
+.unicodesystems-bannerslide-flex-slider .flex-caption span span span{ padding: 0 !important;}
+
+
+.unicodesystems-bannerslide-flex-slider .flex-caption .info{font-weight: 300;font-size: 2.2rem;margin-bottom: 20px !important;}
+.unicodesystems-bannerslide-flex-slider .flex-caption strong{    font-weight: 300;font-size: 3.2rem;line-height: 1.2;margin-bottom: 15px;}
+.unicodesystems-bannerslide-flex-slider .flex-caption .action.more.button{
+    background-image: none;
+    background: #1979c3;
+    padding: 7px 15px !important;
+    color: #fff;
+    border: 1px solid #1979c3;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-radius: 3px;
+    text-decoration: none; width: auto !important;}
+.unicodesystems-bannerslide-flex-slider .flex-caption a{     display: inline-block;width: 100%;height: auto !important;margin-top: 20px;}
+.unicodesystems-bannerslide-flex-slider .flex-caption {        position: absolute;    z-index: 9999;    display: inline-block;    width: 40%;    top: 0;    right: 35px;    background-color: rgba(255,255,255,0.9);    padding: 25px 20px 35px;    margin: 25px 0 0 0;}
+
+.flex-control-paging li a.flex-active {
+    background: rgb(245,135,68) !important;
+}
+
+ .flex-viewport .slides li{
+    margin-bottom: 0px !important;
+}
+
+.flexslider-carousel li.flex-active-slide img {
+    opacity: unset !important;
+}
+.flexslider-carousel .slides img {
+    background-color: gray !important;
+    opacity: 0.5;
+}
+.unicodesystems-bannerslide-flex-slider .flexslider .slides img{ height: 440px;}
+
+
+@media only screen and (max-width: 767px) {
+
+    .columns .column.main{ width: 100%; flex-basis: inherit;}
+    .unicodesystems-bannerslide-flex-slider .flexslider .slides img{ width: 100%;display: block;height: 200px;}
+    .unicodesystems-bannerslider-standard{width: 100%;}
+    .unicodesystems-bannerslide-flex-slider .flex-caption a{ margin-top: 13px;}
+    .unicodesystems-bannerslide-flex-slider .flex-caption .info{ font-size: 14px;margin-bottom: 8px !important;}
+    .unicodesystems-bannerslide-flex-slider .flex-caption strong{font-size: 13px;margin-bottom: 15px;}
+    .unicodesystems-bannerslide-flex-slider .flex-caption{ padding: 8px 25px 11px;width: 53%;}
+
+     .flexslider-carousel li img {
+        height: 100% !important;
+    }
+    
+}

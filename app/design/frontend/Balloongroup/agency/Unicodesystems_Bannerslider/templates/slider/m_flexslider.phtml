@@ -1,0 +1,169 @@
+<?php
+/** @var \Unicodesystems\Bannerslider\Block\SliderItem $block */
+$styleSlide = $block->getSlider()->getStyleSlide();
+$slider = $block->getSlider();
+$htmlId   = $block->getFlexsliderHtmlId();
+$bannerCollection = $block->getBannerCollection();
+?>
+<link rel="stylesheet" type="text/css" 
+href="<?= /* @noEscape */ $block->getViewFileUrl('Unicodesystems_Bannerslider::css/flexslider.css')?>">
+<link rel="stylesheet" type="text/css" 
+href="<?= /* @noEscape */ $block->getViewFileUrl('Unicodesystems_Bannerslider::css/custom.css')?>">
+<script type="text/javascript">
+(function  () {
+    var flexSliderSelector = '<?= /* @noEscape */ $htmlId; ?>';
+    require(['jquery', 'unicodesystems/flexslider'], function($) {
+        var fitImageSlider = function (slider) {
+            if (slider && slider[0]) {
+                var height = $(slider[0]).find('.slides li img').height();
+                $(slider[0]).find('.slides li img').each(function(index, element){
+                    if ($(element).height() > height) {
+                        height = $(element).height();
+                    }
+                });
+                
+            }
+        }
+        $(document).ready(function($) {
+            var STYLESLIDE_FLEXSLIDER_ONE = <?= \Unicodesystems\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_ONE ?>;
+            var STYLESLIDE_FLEXSLIDER_TWO = <?= \Unicodesystems\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_TWO ?>;
+            var STYLESLIDE_FLEXSLIDER_THREE = 
+            <?= \Unicodesystems\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_THREE ?>;
+
+            switch (<?= /* @noEscape */ $styleSlide ?>) {
+                case STYLESLIDE_FLEXSLIDER_ONE:
+                    $('.' + flexSliderSelector).flexslider({
+                        animation: '<?= $block->escapeHtml($slider->getData("animationB")); ?>',
+                        slideshowSpeed: <?= /* @noEscape */ $slider->getSliderSpeed() ?>,
+                        useCSS:false,
+                        start: function (slider) {
+                            fitImageSlider(slider);
+                        }
+                    });
+                    break;
+                case STYLESLIDE_FLEXSLIDER_TWO:
+                    $('.' + flexSliderSelector).flexslider({
+                        animation: '<?= $block->escapeHtml($slider->getData("animationB")) ?>',
+                        controlNav: 'thumbnails',
+                        useCSS:false,
+                        slideshowSpeed: <?= /* @noEscape */ $slider->getSliderSpeed() ?>,
+                        start: function (slider) {
+                            fitImageSlider(slider);
+                        }
+                    });
+                    break;
+                case STYLESLIDE_FLEXSLIDER_THREE:
+                    $('#'+flexSliderSelector + '-carousel').flexslider({
+                        animation: 'slide',
+                        controlNav: false,
+                        animationLoop: false,
+                        slideshow: false,
+                        useCSS:false,
+                        itemWidth: 210,
+                        itemMargin: 5,
+                        asNavFor: '#' + flexSliderSelector,
+                        start: function (slider) {
+                            fitImageSlider(slider);
+                        }
+                    });
+                    $('#' + flexSliderSelector).flexslider({
+                        animation: '<?= $block->escapeHtml($slider->getData("animationB")) ?>',
+                        controlNav: false,
+                        animationLoop: false,
+                        slideshow: false,
+                        sync: '#'+flexSliderSelector + '-carousel',
+                        slideshowSpeed: <?= /* @noEscape */ $slider->getSliderSpeed() ?>,
+                        start: function (slider) {
+                            fitImageSlider(slider);
+                        }
+                    });
+                    break;
+                default:
+                    $('.' + flexSliderSelector).flexslider({
+                        animation: 'slide',
+                        animationLoop: true,
+                        itemWidth: 400,
+                        slideshow: true,
+                        itemMargin: 5,
+                        minItems: 2,
+                        maxItems: 4,
+                        start: function (slider) {
+                            fitImageSlider(slider);
+                        }
+                    });
+                    break;
+            }
+
+        });
+    });
+})();
+</script>
+<div id="m_flexslider" class="unicodesystems-bannerslider-standard"  >
+    
+    <div class="unicodesystems-bannerslide-flex-slider" style="margin: auto; margin-bottom: 0px;">
+        <div id="<?= /* @noEscape */ $htmlId ?>" 
+            class="flexslider flexslider-content-image <?= /* @noEscape */ $htmlId ?>"
+            style="margin:auto">
+            <ul class="slides ">
+                <?php foreach ($bannerCollection as $banner) :
+                    ?>
+                    <?php if ($styleSlide == \Unicodesystems\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_TWO) : ?>
+                    <li data-thumb="<?= /* @noEscape */ $block->getBannerImageUrl($banner) ?>">
+                        <a href="<?php if ($banner->getClickUrl()) :
+                            /* @noEscape */ echo $banner->getClickUrl();
+                                 else :
+                                        echo '#';
+                                 endif;?>" 
+                        title="<?= /* @noEscape */ $banner->getImageAlt() ?>">
+                            <img alt="<?= /* @noEscape */ $banner->getImageAlt() ?>" 
+                            src="<?= /* @noEscape */ $block->getBannerImageUrl($banner) ?>"/>
+                       </a>
+                        <?php if ($banner->getCaption()) :
+                            ?><div class="flex-caption"><?= /* @noEscape */ $banner->getCaption(); ?></div><?php
+                        endif; ?>
+                    </li>
+                    <?php else :
+                        ?>
+                    <li>
+                       <a href="<?php if ($banner->getClickUrl()) :
+                            /* @noEscape */ echo $banner->getClickUrl();
+                                else :
+                                        echo '#';
+                                endif;?>" 
+                        title="<?= /* @noEscape */ $banner->getImageAlt() ?>">
+                            <img alt="<?= /* @noEscape */ $banner->getImageAlt() ?>"  
+                            src="<?= /* @noEscape */ $block->getBannerImageUrl($banner) ?>"/>
+                       </a>
+                        <?php if ($banner->getCaption()) :
+                            ?><div class="flex-caption"><?= /* @noEscape */ $banner->getCaption(); ?></div><?php
+                        endif; ?>
+                    </li>
+                    <?php endif; ?>
+                <?php endforeach ?>
+            </ul>
+        </div>
+
+        <?php if ($styleSlide ==  \Unicodesystems\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_THREE) :
+            ?>
+        <!-- for flex slide carousel-->
+        <div id="<?= /* @noEscape */ $htmlId ?>-carousel" class="flexslider flexslider-carousel" style="margin:auto">
+            <ul class="slides">
+                <?php foreach ($bannerCollection as $banner) :
+                    ?>
+                    <li>
+                        <a href="<?php if ($banner->getClickUrl()) :
+                            /* @noEscape */ echo $banner->getClickUrl();
+                                 else :
+                                        echo '#';
+                                 endif;?>" 
+                        title="<?= /* @noEscape */ $banner->getImageAlt() ?>">
+                            <img  alt="<?= /* @noEscape */ $banner->getImageAlt() ?>"
+                        src="<?= /* @noEscape */ $block->getBannerImageUrl($banner) ?>" />
+                        </a>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
